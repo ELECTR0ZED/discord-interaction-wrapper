@@ -8,3 +8,6 @@ exports.azureFunctionAdapter = require('./adapters/azureFunctionAdapter');
 
 // Utilities
 exports.interactionResponses = require('./utils/interactionResponses');
+
+// Constants
+exports.interactionTypes = require('./constants/interactionsTypes');
