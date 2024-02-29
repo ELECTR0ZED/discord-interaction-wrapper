@@ -1,5 +1,5 @@
 // Interaction.js
-const crypto = require('crypto');
+const nacl = require('tweetnacl');
 
 
 class Interaction {
@@ -27,13 +27,10 @@ class Interaction {
 
         const message = timestamp + JSON.stringify(this.body);
         
-        const isVerified = crypto.verify(
-            null,
+        const isVerified = nacl.sign.detached.verify(
             Buffer.from(message),
-            {
-                key: Buffer.from(publicKey, 'hex')
-            },
-            Buffer.from(signature, 'hex')
+            Buffer.from(signature, 'hex'),
+            Buffer.from(publicKey, 'hex')
         );
 
         return isVerified;
