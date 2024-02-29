@@ -33,7 +33,8 @@ class Interaction {
             null,
             Buffer.from(message),
             {
-                key: publicKey
+                key: Buffer.from(publicKey, 'hex'),
+                type: 'public'
             },
             Buffer.from(signature, 'hex')
         );
