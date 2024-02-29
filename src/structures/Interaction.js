@@ -33,10 +33,9 @@ class Interaction {
             "sha256",
             Buffer.from(message),
             {
-                key: publicKey,
-                format: 'hex'
+                key: publicKey
             },
-            Buffer.from(signature, 'hex')
+            Buffer.from(signature)
         );
 
         return isVerified;
