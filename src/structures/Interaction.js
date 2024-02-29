@@ -30,12 +30,12 @@ class Interaction {
         const message = timestamp + body;
         // Verify the signature
         const isVerified = crypto.verify(
-            "sha256",
+            null,
             Buffer.from(message),
             {
                 key: publicKey
             },
-            Buffer.from(signature)
+            Buffer.from(signature, 'hex')
         );
 
         return isVerified;
