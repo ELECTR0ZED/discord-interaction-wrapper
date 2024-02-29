@@ -11,8 +11,8 @@ class Interaction {
     constructor(request) {
         this.body = request.body
         this.headers = request.headers;
+        this.type = this.body.type;
         this.data = this.body.data;
-        this.type = this.data.type;
     }
 
     
