@@ -24,17 +24,14 @@ class Interaction {
     isValid(publicKey) {
         const signature = this.headers['x-signature-ed25519'];
         const timestamp = this.headers['x-signature-timestamp'];
-        const body = this.body;
 
-        // Construct the message from the timestamp and body
-        const message = timestamp + body;
-        // Verify the signature
+        const message = timestamp + JSON.stringify(this.body);
+        
         const isVerified = crypto.verify(
             null,
             Buffer.from(message),
             {
-                key: Buffer.from(publicKey, 'hex'),
-                type: 'public'
+                key: Buffer.from(publicKey, 'hex')
             },
             Buffer.from(signature, 'hex')
         );
