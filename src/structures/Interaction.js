@@ -8,11 +8,11 @@ class Interaction {
      * @param {string} requestBody - The raw request body received from Discord.
      * @returns {Interaction} The new Interaction instance.
      */
-    constructor(requestBody) {
-        // Parse the request body and initialize the class properties
-        this.interactionData = JSON.parse(requestBody);
-        this.type = this.interactionData.type;
-        this.data = this.interactionData.data;
+    constructor(request) {
+        this.body = request.body
+        this.headers = request.headers;
+        this.data = this.body.data;
+        this.type = this.data.type;
     }
 
     
