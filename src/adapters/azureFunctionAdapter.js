@@ -8,7 +8,10 @@
 async function toHttpRequest(req) {
     return {
         method: req.method,
-        headers: req.headers,
+        headers: {
+            'x-signature-ed25519': req.headers.get('x-signature-ed25519') || req.headers.get('X-Signature-Ed25519'),
+            'x-signature-timestamp': req.headers.get('x-signature-timestamp') || req.headers.get('X-Signature-Timestamp')
+        },
         body: await req.text() 
     };
 }
