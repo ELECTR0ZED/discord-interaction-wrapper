@@ -5,11 +5,11 @@
  * @param {object} req - The Azure Function HTTP request object.
  * @returns {object} A generic HttpRequest object.
  */
-function toHttpRequest(req) {
+async function toHttpRequest(req) {
     return {
         method: req.method,
         headers: req.headers,
-        body: req.rawBody 
+        body: await req.text() 
     };
 }
 
