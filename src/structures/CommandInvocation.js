@@ -1,4 +1,7 @@
 const InteractionTypes = require('../constants/InteractionTypes');
+const Channel = require('./Channel');
+const Member = require('./Member');
+const Guild = require('./Guild');
 
 class CommandInvocation {
 
@@ -12,13 +15,12 @@ class CommandInvocation {
         if (data.type !== InteractionTypes.APPLICATION_COMMAND) {
             throw new Error('Invalid interaction type');
         }
-        
+
         this.command = data.data.name;
 
-
-        this.channel = data.channel;
-        this.guild = data.guild;
-        this.member = data.member;
+        this.channel = new Channel(data.channel);
+        this.guild = new Guild(data.guild);
+        this.member = new Member(data.member);
 
         this.options = {};
         if (this.obj.data.options) {
@@ -40,3 +42,5 @@ class CommandInvocation {
         }
     }
 }
+
+module.exports = CommandInvocation;
