@@ -9,6 +9,7 @@ exports.User = require('./structures/User');
 exports.Member = require('./structures/Member');
 exports.Channel = require('./structures/Channel');
 exports.Guild = require('./structures/Guild');
+exports.Embed = require('./structures/Embed');
 
 // Utilities
 exports.interactionResponses = require('./utils/interactionResponses');
