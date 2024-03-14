@@ -6,14 +6,15 @@
  * @returns {object} A generic HttpRequest object.
  */
 async function toHttpRequest(req) {
+    const body = await req.text();
     return {
         method: req.method,
         headers: {
             'x-signature-ed25519': req.headers.get('x-signature-ed25519') || req.headers.get('X-Signature-Ed25519'),
             'x-signature-timestamp': req.headers.get('x-signature-timestamp') || req.headers.get('X-Signature-Timestamp')
         },
-        body: JSON.parse(await req.text()),
-        rawBody: await req.text()
+        rawBody: body,
+        body: JSON.parse(body)
     };
 }
 
