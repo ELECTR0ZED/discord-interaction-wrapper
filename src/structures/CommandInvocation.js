@@ -2,6 +2,8 @@ const interactionTypes = require('../constants/interactionTypes');
 const Channel = require('./Channel');
 const Member = require('./Member');
 const Guild = require('./Guild');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v10');
 
 class CommandInvocation {
 
@@ -24,6 +26,8 @@ class CommandInvocation {
         this.member = new Member(data.member);
         this.user = this.member.user;
 
+        this.rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+
         this.options = {};
         if (data.options) {
             this.resolveOptions();
@@ -42,6 +46,21 @@ class CommandInvocation {
                 this.options[option.name] = option.value;
             }
         }
+    }
+
+    async reply(content) {
+        const payload = {};
+
+        if (typeof content === 'string') {
+            payload.content = content;
+        } else {
+            Object.assign(payload, content);
+        }
+
+        await this.rest.patch(
+            Routes.webhookMessage(this.obj.application_id, this.obj.token, '@original'),
+            { body: payload },
+        );
     }
 }
 
