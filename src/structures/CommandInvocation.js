@@ -22,6 +22,7 @@ class CommandInvocation {
         this.channel = new Channel(data.channel);
         this.guild = new Guild(data.guild);
         this.member = new Member(data.member);
+        this.user = this.member.user;
 
         this.options = {};
         if (data.options) {
