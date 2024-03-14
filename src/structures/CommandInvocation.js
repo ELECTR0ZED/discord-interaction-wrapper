@@ -11,6 +11,7 @@ class CommandInvocation {
      * @returns {CommandInvocation} - The new CommandInvocation instance. 
      */
     constructor(data) {
+        this.obj = data;
         
         if (data.type !== interactionTypes.APPLICATION_COMMAND) {
             throw new Error('Invalid interaction type');
@@ -23,7 +24,7 @@ class CommandInvocation {
         this.member = new Member(data.member);
 
         this.options = {};
-        if (this.obj.data.options) {
+        if (data.options) {
             this.resolveOptions();
         }
     }
