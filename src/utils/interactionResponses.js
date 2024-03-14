@@ -2,17 +2,17 @@
 
 // Respond to a Ping interaction
 function pingResponse() {
-    return JSON.stringify({ type: 1 });
+    return { type: 1 };
 }
 
 // Defer the reply to an Application Command
 function deferResponse(ephemeral = false) {
-    return JSON.stringify({
+    return {
         type: 5,
         data: {
             flags: ephemeral ? 64 : 0
         }
-    });
+    };
 }
 
 // Export utility functions
