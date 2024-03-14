@@ -1,4 +1,4 @@
-const InteractionTypes = require('../constants/InteractionTypes');
+const InteractionTypes = require('../constants/interactionTypes');
 const Channel = require('./Channel');
 const Member = require('./Member');
 const Guild = require('./Guild');

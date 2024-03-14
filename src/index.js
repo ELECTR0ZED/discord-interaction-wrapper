@@ -15,5 +15,5 @@ exports.Embed = require('./structures/Embed');
 exports.interactionResponses = require('./utils/interactionResponses');
 
 // Constants
-exports.interactionTypes = require('./constants/interactionsTypes');
+exports.interactionTypes = require('./constants/interactionTypes');
 exports.channelTypes = require('./constants/channelTypes');
