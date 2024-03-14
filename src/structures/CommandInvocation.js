@@ -48,13 +48,15 @@ class CommandInvocation {
         }
     }
 
-    async reply(content) {
-        const payload = {};
+    async reply(content, options = {}) {
+        const payload = { ...options };
 
         if (typeof content === 'string') {
             payload.content = content;
-        } else {
+        } else if (typeof content === 'object' && content !== null) {
             Object.assign(payload, content);
+        } else {
+            throw new TypeError('Content must be a string or an object.');
         }
 
         await this.rest.patch(
