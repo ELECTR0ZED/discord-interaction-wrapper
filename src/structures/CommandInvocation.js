@@ -1,4 +1,4 @@
-const InteractionTypes = require('../constants/interactionTypes');
+const interactionTypes = require('../constants/interactionTypes');
 const Channel = require('./Channel');
 const Member = require('./Member');
 const Guild = require('./Guild');
@@ -12,7 +12,7 @@ class CommandInvocation {
      */
     constructor(data) {
         
-        if (data.type !== InteractionTypes.APPLICATION_COMMAND) {
+        if (data.type !== interactionTypes.APPLICATION_COMMAND) {
             throw new Error('Invalid interaction type');
         }
 
