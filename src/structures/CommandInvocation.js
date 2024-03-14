@@ -29,7 +29,7 @@ class CommandInvocation {
         this.rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
         this.options = {};
-        if (data.options) {
+        if (data.data.options) {
             this.resolveOptions();
         }
     }
