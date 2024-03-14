@@ -10,6 +10,7 @@ class Interaction {
      */
     constructor(request) {
         this.body = request.body
+        this.rawBody = request.rawBody;
         this.headers = request.headers;
         this.type = this.body.type;
         this.data = this.body.data;
@@ -25,7 +26,7 @@ class Interaction {
         const signature = this.headers['x-signature-ed25519'];
         const timestamp = this.headers['x-signature-timestamp'];
 
-        const message = timestamp + JSON.stringify(this.body);
+        const message = timestamp + this.rawBody;
         
         const isVerified = nacl.sign.detached.verify(
             Buffer.from(message),
