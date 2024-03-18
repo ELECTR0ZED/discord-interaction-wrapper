@@ -15,8 +15,14 @@ function deferResponse(ephemeral = false) {
     };
 }
 
+// Defer the reply to a Message Component interaction
+function deferComponentResponse() {
+    return { type: 6 };
+}
+
 // Export utility functions
 module.exports = {
     pingResponse,
-    deferResponse
+    deferResponse,
+    deferComponentResponse
 };
