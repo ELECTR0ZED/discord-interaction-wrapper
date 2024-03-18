@@ -11,6 +11,8 @@ exports.Channel = require('./structures/Channel');
 exports.Guild = require('./structures/Guild');
 exports.Embed = require('./structures/Embed');
 exports.AutoComplete = require('./structures/AutoComplete');
+exports.Button = require('./structures/Button');
+exports.ActionRow = require('./structures/ActionRow');
 
 // Utilities
 exports.interactionResponses = require('./utils/interactionResponses');
