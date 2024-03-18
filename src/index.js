@@ -20,3 +20,4 @@ exports.interactionResponses = require('./utils/interactionResponses');
 // Constants
 exports.interactionTypes = require('./constants/interactionTypes');
 exports.channelTypes = require('./constants/channelTypes');
+exports.buttonStyles = require('./constants/buttonStyles');
