@@ -52,7 +52,7 @@ class BaseInteraction {
          * The user who created this interaction
          * @type {User}
          */
-        this.user = new User(data.user) ?? null;
+        this.user = new User(data.member.user) ?? null;
 
         /**
          * If this interaction was sent in a guild, the member which sent it
@@ -91,6 +91,7 @@ class BaseInteraction {
     }
 
     transformOptions(options) {
+        if (!options) return;
         for (const option of options) {
             const result = {
                 name: option.name,
