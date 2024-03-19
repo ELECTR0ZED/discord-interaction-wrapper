@@ -28,7 +28,7 @@ class MessageComponentInteraction extends BaseInteraction {
 
     /**
      * The component which was interacted with
-     * @type {MessageActionRowComponent|APIMessageActionRowComponent}
+     * @type {Object}
      * @readonly
      */
     get component() {
@@ -38,6 +38,6 @@ class MessageComponentInteraction extends BaseInteraction {
     }
 }
 
-Object.assign(CommandInteraction.prototype, InteractionResponses.prototype);
+Object.assign(MessageComponentInteraction.prototype, InteractionResponses.prototype);
 
 module.exports = MessageComponentInteraction;
