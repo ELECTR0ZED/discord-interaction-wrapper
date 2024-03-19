@@ -3,6 +3,7 @@ const Channel = require('./Channel');
 const Member = require('./Member');
 const User = require('./User');
 const Guild = require('./Guild');
+const { REST } = require('@discordjs/rest');
 
 /**
  * Create a new Interaction instance.
@@ -68,6 +69,8 @@ class BaseInteraction {
 
         this.options = {};
         this.resolved = data.data.resolved;
+
+        this.rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
         this.transformOptions(data.data.options);
     }

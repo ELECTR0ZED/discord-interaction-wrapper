@@ -1,10 +1,6 @@
 const { InteractionResponseType, MessageFlags, Routes } = require('discord-api-types/v10');
-const { REST } = require('@discordjs/rest');
 
 class InteractionResponses {
-    constructor() {
-        this.rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
-    }
 
     async deferReply(options = {}) {
         this.ephemeral = options.ephemeral ?? false;
