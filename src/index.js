@@ -22,3 +22,6 @@ exports.validateInteraction = require('./utils/validateInteraction');
 exports.interactionTypes = require('./constants/InteractionTypes');
 exports.channelTypes = require('./constants/channelTypes');
 exports.buttonStyles = require('./constants/buttonStyles');
+
+// Handlers
+exports.InteractionCreate = require('./handlers/InteractionCreate');
