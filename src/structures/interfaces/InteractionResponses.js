@@ -38,14 +38,14 @@ class InteractionResponses {
         }
 
         await this.rest.patch(
-            Routes.webhookMessage(this.body.application_id, this.body.token, '@original'),
+            Routes.webhookMessage(this.applicationId, this.token, '@original'),
             { body: payload },
         );
     }
 
     async deleteReply() {
         await this.rest.delete(
-            Routes.webhookMessage(this.body.application_id, this.body.token, '@original'),
+            Routes.webhookMessage(this.applicationId, this.token, '@original'),
         );
     }
 
@@ -61,7 +61,7 @@ class InteractionResponses {
         }
 
         await this.rest.post(
-            Routes.webhookMessage(this.body.application_id, this.body.token),
+            Routes.webhookMessage(this.applicationId, this.token),
             { body: payload },
         );
     }
@@ -84,7 +84,7 @@ class InteractionResponses {
         }
 
         await this.rest.patch(
-            Routes.webhookMessage(this.body.application_id, this.body.token, '@original'),
+            Routes.webhookMessage(this.applicationId, this.token, '@original'),
             { body: payload },
         );
     }
