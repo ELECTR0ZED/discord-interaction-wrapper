@@ -88,6 +88,27 @@ class InteractionResponses {
             { body: payload },
         );
     }
+
+    static applyToClass(structure, ignore = []) {
+        const props = [
+            'deferReply',
+            'reply',
+            'editReply',
+            'deleteReply',
+            'followUp',
+            'deferUpdate',
+            'update',
+        ];
+    
+        for (const prop of props) {
+            if (ignore.includes(prop)) continue;
+            Object.defineProperty(
+                structure.prototype,
+                prop,
+                Object.getOwnPropertyDescriptor(InteractionResponses.prototype, prop),
+            );
+        }
+    }
 }
 
 module.exports = InteractionResponses;

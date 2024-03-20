@@ -38,6 +38,6 @@ class MessageComponentInteraction extends BaseInteraction {
     }
 }
 
-Object.assign(MessageComponentInteraction.prototype, InteractionResponses.prototype);
+InteractionResponses.applyToClass(MessageComponentInteraction);
 
 module.exports = MessageComponentInteraction;

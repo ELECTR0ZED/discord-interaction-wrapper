@@ -36,6 +36,6 @@ class CommandInteraction extends BaseInteraction {
     }
 }
 
-Object.assign(CommandInteraction.prototype, InteractionResponses.prototype);
+InteractionResponses.applyToClass(CommandInteraction, ['deferUpdate', 'update']);
 
 module.exports = CommandInteraction;
