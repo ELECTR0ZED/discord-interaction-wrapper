@@ -1,22 +1,10 @@
-class AutoComplete {
+const BaseInteraction = require("./BaseInteraction");
+
+class AutoComplete extends BaseInteraction {
     constructor(data) {
-        this.obj = data;
-        this.guild_id = data.guild_id;
-        this.channel = data.channel;
-        this.member = data.member;
-        this.user = data.member.user;
+        super(data);
+
         this.command = data.data.name;
-
-        this.options = {};
-        if (this.obj.data.options) {
-            this.resolveOptions();
-        }
-    }
-
-    resolveOptions() {
-        for (const option of this.obj.data.options) {
-            this.options[option.name] = option.value;
-        }
     }
 }
 
