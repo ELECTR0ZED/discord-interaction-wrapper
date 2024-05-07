@@ -53,13 +53,13 @@ class BaseInteraction {
          * The user who created this interaction
          * @type {User}
          */
-        this.user = new User(data.member.user) ?? null;
+        this.user = data.member?.user ? new User(data.member.user) : null;
 
         /**
          * If this interaction was sent in a guild, the member which sent it
          * @type {?Member}
          */
-        this.member = new Member(data.member) ?? null;
+        this.member = data.member ? new Member(data.member) : null;
 
         /**
          * The version
@@ -68,11 +68,13 @@ class BaseInteraction {
         this.version = data.version;
 
         this.options = {};
-        this.resolved = data.data.resolved;
+        this.resolved = data.data?.resolved;
 
         this.rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
-        this.transformOptions(data.data.options);
+        if (data.data?.options) {
+            this.transformOptions(data.data.options);
+        }
     }
 
     /**
