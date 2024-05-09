@@ -107,13 +107,13 @@ class BaseInteraction {
 
             if (this.resolved) {
                 const user = this.resolved.users?.[option.value];
-                if (user) result.value = new User(user);
+                if (user) result.user = new User(user);
 
                 const member = this.resolved.members?.[option.value];
-                if (member) result.value = new Member(member);
+                if (member) result.member = new Member(member);
 
                 const channel = this.resolved.channels?.[option.value];
-                if (channel) result.value = new Channel(channel);
+                if (channel) result.channel = new Channel(channel);
 
                 // const role = resolved.roles?.[option.value];
                 // const attachment = resolved.attachments?.[option.value];
