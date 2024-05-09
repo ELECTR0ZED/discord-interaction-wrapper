@@ -20,7 +20,7 @@ class Member {
         this.communication_disabled_until = data.communication_disabled_until;
         this.flags = data.flags;
 
-        this.user = new User(data.user);
+        this.user = data.user ? new User(data.user) : null;
     }
 
     toJSON() {
