@@ -61,7 +61,7 @@ class InteractionResponses {
         }
 
         await this.rest.post(
-            Routes.webhookMessage(this.applicationId, this.token),
+            Routes.webhook(this.applicationId, this.token),
             { body: payload },
         );
     }
