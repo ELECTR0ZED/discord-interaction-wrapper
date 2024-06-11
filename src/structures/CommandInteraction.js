@@ -38,7 +38,7 @@ class CommandInteraction extends BaseInteraction {
          * Whether the command invoked was a subcommand
          * @type {?string}
          */
-        this.subCommand = data.options.find(option => option.type === 1)?.name ?? null;
+        this.subCommand = this.options.find(option => option.type === 1)?.name ?? null;
     }
 }
 
