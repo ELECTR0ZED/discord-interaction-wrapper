@@ -33,6 +33,12 @@ class CommandInteraction extends BaseInteraction {
          * @type {?int}
          */
         this.commandGuildId = data.data.guild_id ?? null;
+
+        /**
+         * Whether the command invoked was a subcommand
+         * @type {?string}
+         */
+        this.subcommand = data.options.find(option => option.type === 1)?.name ?? null;
     }
 }
 
