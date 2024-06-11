@@ -12,6 +12,8 @@ exports.Guild = require('./structures/Guild');
 exports.Embed = require('./structures/Embed');
 exports.AutoComplete = require('./structures/AutoComplete');
 exports.Button = require('./structures/Button');
+exports.SelectMenu = require('./structures/SelectMenu');
+exports.SelectMenuOption = require('./structures/SelectMenuOption');
 exports.ActionRow = require('./structures/ActionRow');
 
 // Utilities
