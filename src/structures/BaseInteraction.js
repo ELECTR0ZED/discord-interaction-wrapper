@@ -67,7 +67,7 @@ class BaseInteraction {
          */
         this.version = data.version;
 
-        this.options = {};
+        this.options = [];
         this.resolved = data.data?.resolved;
 
         this.rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
@@ -119,7 +119,7 @@ class BaseInteraction {
                 // const attachment = resolved.attachments?.[option.value];
             }
 
-            this.options[option.name] = result;
+            this.options.push(result);
         }
     }
 
